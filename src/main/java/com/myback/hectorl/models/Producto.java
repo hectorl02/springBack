@@ -1,5 +1,7 @@
 package com.myback.hectorl.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +18,7 @@ public class Producto {
     private String imagen;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name="categoria_id")
     private Categoria categoria;
 
